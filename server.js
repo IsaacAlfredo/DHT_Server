@@ -10,14 +10,20 @@ server.get("/update", (req, res) => {
   const params = req.query;
   temperature = params.temperature;
   humidity = params.humidity;
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
   res.status(200).send("OK");
 });
 
 server.get("/temperature", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
   res.status(200).send(temperature.toString());
 });
 
 server.get("/humidity", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
   res.status(200).send(humidity.toString());
 });
 
